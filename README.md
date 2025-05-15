@@ -3,7 +3,7 @@
 # Construa e Execute
 
 ### Requisitos Técnicos
-* php: 8.1,
+* php: 8.1
 * Composer
 * Postgres ou Mysql  (aqui foi Postgres)
 
@@ -27,9 +27,9 @@ DB_DATABASE=
 DB_USERNAME=
 DB_PASSWORD=
 ``` 
-4. Rode as Migrates e Levante o servidor :
+4. Rode as Migrates e Seeds e Levante o servidor :
  ```
- php artisan migrate && php artisan serve
+ php artisan migrate --seed && php artisan serve
 ``` 
 
 
