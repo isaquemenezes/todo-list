@@ -1,10 +1,16 @@
 # 🚀 Projeto Laravel - Gerenciamento de Tarefas 📝
 
 # Construa e Execute
+
+### Requisitos Técnicos
+* php: 8.1,
+* Composer
+* Postgres ou Mysql  (aqui foi Postgres)
+
 1. Clone o Repositório
 ```
-git clone https://github.com/isaquemenezes/laravel-api-usuario.git
-cd api  && cd frontend-vuejs
+git clone git remote add origin https://github.com/isaquemenezes/todo-list.git
+cd todo-list
 ```
 2. Instalar Dependências
 ```
@@ -12,7 +18,7 @@ composer install
 
 ```
 
-3. Configure seu Banco favorito(aqui estamos com Postgres):
+3. Configure seu Banco favorito(aqui foi Postgres):
 ```
 DB_CONNECTION=pgsql
 DB_HOST=127.0.0.1
@@ -27,7 +33,7 @@ DB_PASSWORD=
 ``` 
 
 
-4. Testar a Aplicação | navegador| Postman
+4. Testar a Aplicação
 ```
 http://127.0.0.1:8000
 ```
@@ -123,17 +129,3 @@ php artisan test
 * Criar Migrations para as tabelas do banco de dados.
 * Utilizar transações de banco de dados durante cadastros, edições e exclusão dos registros das tabelas.
 * Criar mensagens de feedback para ações do CRUD (ex.: "Tarefa criada com sucesso!").
-
-
-### Tecnologias
-- [Postman](https://www.postman.com/)
-- [Visual Studio Code](https://code.visualstudio.com/)
-- [Git](https://git-scm.com/)
-- [GiHub](https://github.com/)
-- [PHP | 8.1.27 ](https://www.php.net/)
-- [Composer](https://getcomposer.org/)
-- [Bootstrap 5.3](https://getbootstrap.com/)
-- [Vue: 3.2 ](https://vuejs.org/)
-- [DBeaver ](https://dbeaver.io/download/)
-- [PostgreSQL](https://www.postgresql.org/)
-
