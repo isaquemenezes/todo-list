@@ -1,11 +1,13 @@
 # 🚀 Projeto Laravel - Gerenciamento de Tarefas 📝
 
-# Construa e Execute
-
 ### Requisitos Técnicos
-* php: 8.1
-* Composer
-* Postgres ou Mysql  (aqui foi Postgres)
+* **PHP:** 8.1 ou superior (`>= 8.1`)
+* **Composer:** 2.8 ou superior (`>= 2.8`)
+* **Banco de Dados:**
+    * **PostgreSQL:** 17.4 ou superior (`>= 17.4`)
+    * **MySQL:**  - _Observação: O projeto utilizou PostgreSQL._
+
+# Construa e Execute
 
 1. Clone o Repositório
 ```
