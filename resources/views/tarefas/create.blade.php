@@ -6,8 +6,11 @@
 <div class="container mt-4">
     <h2>Cadastrar Nova Tarefa</h2>
 
-    @if (session('success'))
-        <div class="alert alert-success">{{ session('success') }}</div>
+    @if(session('success') || session('error'))
+        <div id="flash-message" class="alert alert-dismissible fade show alert-{{ session('success') ? 'success' : 'danger' }}" role="alert">
+            {{ session('success') ?? session('error') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
+        </div>
     @endif
 
     @if ($errors->any())
@@ -25,7 +28,7 @@
 
         <div class="mb-3">
             <label for="titulo" class="form-label">Título*</label>
-            <input type="text" name="titulo" class="form-control" required minlength="3" maxlength="255" value="{{ old('titulo') }}">
+            <input type="text" name="titulo" class="form-control"  minlength="3" maxlength="255" value="{{ old('titulo') }}">
         </div>
 
         <div class="mb-3">
@@ -35,7 +38,8 @@
 
         <div class="mb-3">
             <label for="status" class="form-label">Status*</label>
-            <select name="status" class="form-select" required>
+            <select name="status" class="form-select">
+
                 <option value="pendente" {{ old('status') == 'pendente' ? 'selected' : '' }}>Pendente</option>
                 <option value="concluida" {{ old('status') == 'concluida' ? 'selected' : '' }}>Concluída</option>
             </select>

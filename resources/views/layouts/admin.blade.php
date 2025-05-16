@@ -31,19 +31,19 @@
             <div class="collapse navbar-collapse" id="navbarAdmin">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a href="#" class="nav-link {{ request()->is('/') ? 'active' : '' }}">Início</a>
+                        <a href="{{ route('admin.index') }}" class="nav-link {{ request()->is('/') ? 'active' : '' }}">Início</a>
                     </li>
 
                     <li class="nav-item">
                         <a href="{{route('tarefas.create')}}" class="nav-link {{ request()->is('relatorios*') ? 'active' : '' }}">Tarefas</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link {{ request()->is('configuracoes*') ? 'active' : '' }}">Configurações</a>
+                        <a class="nav-link"  href="{{ route('usuario.index') }}">Perfil</a>
                     </li>
                     <li class="nav-item">
                         <form method="POST" action="{{ route('logout') }}" class="d-inline">
                             @csrf
-                            <button type="submit" class="btn btn-link nav-link text-danger p-0">Sair</button>
+                            <button type="submit" class="btn btn-link nav-link text-danger">Sair</button>
                         </form>
                     </li>
                 </ul>
@@ -59,5 +59,10 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     @stack('scripts')
+
+    @vite([
+        'resources/css/app.css',
+        'resources/js/app.js'
+    ])
 </body>
 </html>

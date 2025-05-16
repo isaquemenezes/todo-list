@@ -45,6 +45,10 @@
                 Sair da Conta
             </a>
 
+            <a href="{{ route('perfil.senha.form') }}" class="btn btn-outline-primary">
+                Atualizar Senha
+            </a>
+
             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                 @csrf
             </form>

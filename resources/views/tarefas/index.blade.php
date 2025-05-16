@@ -6,8 +6,11 @@
 <div class="container mt-4">
     <h2>Minhas Tarefas</h2>
 
-    @if(session('success'))
-        <div class="alert alert-success">{{ session('success') }}</div>
+    @if(session('success') || session('error'))
+        <div id="flash-message" class="alert alert-dismissible fade show alert-{{ session('success') ? 'success' : 'danger' }}" role="alert">
+            {{ session('success') ?? session('error') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
+        </div>
     @endif
 
     <a href="{{ route('tarefas.create') }}" class="btn btn-primary mb-3">Nova Tarefa</a>
@@ -81,15 +84,7 @@
                     <td>
                         <a href="{{ route('tarefas.edit', $tarefa->id) }}" class="btn btn-warning btn-sm">Editar</a>
 
-                        {{-- <form
-                            action="{{ route('tarefas.destroy', $tarefa->id) }}"
-                            method="POST"
-                            style="display:inline;"
-                        >
-                            @csrf
-                            @method('DELETE')
-                            <button class="btn btn-danger btn-sm">Excluir</button>
-                        </form> --}}
+
                         <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#confirmarExclusaoModal">
                             Excluir
                         </button>
@@ -153,10 +148,10 @@
 </div>
 
 
-{{-- <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script> --}}
+<script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
 
 <!-- Inicialização do DataTable -->
 <script>

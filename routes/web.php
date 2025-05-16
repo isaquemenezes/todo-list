@@ -4,7 +4,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\Auth\CustomPasswordResetController;
+use App\Http\Controllers\Auth\PasswordResetController;
 
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\Auth\LoginController;
@@ -77,8 +77,20 @@ Route::middleware(['auth'])->group(function () {
     Route::put('tarefas/{tarefa}/gerenciar-usuarios', [TarefaUsuarioController::class, 'update'])->name('tarefas.gerenciar-usuarios.update');
 });
 
-Route::get('/recuperar-senha', [CustomPasswordResetController::class, 'formEmail'])->name('senha.email.form');
-Route::post('/recuperar-senha', [CustomPasswordResetController::class, 'verificarEmail'])->name('senha.email.verificar');
+// Formulário de atualização da senha para usuário deslogado
+Route::get('/recuperar-senha', [PasswordResetController::class, 'formEmail'])->name('senha.email.form');
+Route::post('/recuperar-senha', [PasswordResetController::class, 'verificarEmail'])->name('senha.email.verificar');
 
-Route::get('/nova-senha/{user}', [CustomPasswordResetController::class, 'formNovaSenha'])->name('senha.nova.form');
-Route::post('/nova-senha/{user}', [CustomPasswordResetController::class, 'salvarNovaSenha'])->name('senha.nova.salvar');
+Route::get('/nova-senha/{user}', [PasswordResetController::class, 'formNovaSenha'])->name('senha.nova.form');
+Route::post('/nova-senha/{user}', [PasswordResetController::class, 'salvarNovaSenha'])->name('senha.nova.salvar');
+
+// Formulário de atualização da senha para usuário logado
+Route::get('/perfil/senha', [PasswordResetController::class, 'formSenhaUsuarioLogado'])
+    ->name('perfil.senha.form')
+    ->middleware('auth');
+
+// Enviar nova senha
+Route::post('/perfil/senha', [PasswordResetController::class, 'salvarSenhaUsuarioLogado'])
+    ->name('perfil.senha.salvar')
+    ->middleware('auth');
+

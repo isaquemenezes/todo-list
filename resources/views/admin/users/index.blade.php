@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div>
+{{-- <div>
     @if(session('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert" id="flash-message">{{ session('success') }}</div>
     @endif
@@ -12,8 +12,13 @@
     @if(session('error'))
         <div class="alert alert-danger alert-dismissible fade show" role="alert" id="flash-message">{{ session('error') }}</div>
     @endif
-</div>
-
+</div> --}}
+@if(session('success') || session('error'))
+    <div id="flash-message" class="alert alert-dismissible fade show alert-{{ session('success') ? 'success' : 'danger' }}" role="alert">
+        {{ session('success') ?? session('error') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
+    </div>
+@endif
 
 
 <h1>Gerenciamento de Usuários</h1>
@@ -89,24 +94,5 @@
         @endforelse
     </tbody>
 </table>
-
-
-<script>
-    setTimeout(function() {
-        const alert = document.getElementById('flash-message');
-        if (alert) {
-            alert.classList.remove('show');
-            alert.classList.add('fade');
-            alert.style.transition = "opacity 0.5s ease-out";
-            alert.style.opacity = 0;
-
-            setTimeout(() => {
-                alert.remove();
-            }, 400); // remove do DOM após a animação
-        }
-    }, 3000); // 4 segundos
-</script>
-
-
 
 @endsection

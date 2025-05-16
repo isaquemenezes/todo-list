@@ -16,7 +16,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
         <div class="container">
-            <a class="navbar-brand" href="{{ route('usuario.index') }}">Dashboard</a>
+            <a class="navbar-brand" href="{{ route('usuario.index') }}">Perfil</a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -34,6 +34,14 @@
                         <li class="nav-item">
                             <span class="nav-link text-white">Olá, {{ Auth::user()->name }}</span>
                         </li>
+
+                        @if(auth()->check() && auth()->user()->is_admin)
+                        <li class="nav-item">
+
+                            <a class="nav-link" href="{{ route('admin.index') }}">Dashboard</a>
+                        </li>
+                        @endif
+
                         <li class="nav-item">
                             <form action="{{ route('logout') }}" method="POST" class="d-inline">
                                 @csrf
@@ -57,10 +65,15 @@
         @yield('content')
     </main>
 
-    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    {{-- <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script> --}}
+
+    @vite([
+        'resources/css/app.css',
+        'resources/js/app.js'
+    ])
 
 </body>
 </html>

@@ -32,9 +32,25 @@
 
         <div class="mb-3">
             <label for="password" class="form-label">Senha*</label>
-            <input type="password" name="password" class="form-control" required minlength="8" >
-            <div class="form-text">Mínimo 8 caracteres, com letras maiúsculas, minúsculas, números e símbolos.</div>
+            <input type="password" name="password" class="form-control" required minlength="3" >
+            <div class="form-text">Mínimo 3 caracteres, com letras maiúsculas, minúsculas, números e símbolos.</div>
         </div>
+        {{-- <div class="mb-3">
+            <label for="password" class="form-label">Senha*</label>
+            <input
+                type="password"
+                name="password"
+                id="password"
+                class="form-control"
+                required
+                minlength="8"
+                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&]).+$"
+                title="A senha deve conter pelo menos 8 caracteres, incluindo letras maiúsculas, minúsculas, números e símbolos."
+            >
+            <div class="form-text text-muted">
+                Mínimo 8 caracteres, com letras maiúsculas, minúsculas, números e símbolos.
+            </div>
+        </div> --}}
 
         <div class="mb-3">
             <label for="status" class="form-label">Status*</label>

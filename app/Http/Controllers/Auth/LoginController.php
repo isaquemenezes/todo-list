@@ -1,16 +1,10 @@
 <?php
-
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\ValidationException;
-use App\Models\User;
-
-
 
 class LoginController extends Controller
 {
@@ -18,31 +12,6 @@ class LoginController extends Controller
     {
         return view('auth.login');
     }
-
-    /*
-
-    public function login(Request $request)
-    {
-        $credentials = $request->only('email', 'password');
-
-        if (Auth::attempt($credentials)) {
-            if (!Auth::user()->status) {
-                Auth::logout();
-                return back()->withErrors([
-                    'email' => 'Seu usuário está inativo.',
-                ]);
-            }
-
-            $request->session()->regenerate();
-
-            if (Auth::user()->is_admin) {
-                return redirect()->route('admin.users.index');
-            }
-
-            return redirect()->route('usuario.index');
-        }
-    }
-        */
 
     public function login(LoginRequest $request)
     {
@@ -57,8 +26,6 @@ class LoginController extends Controller
 
         return redirect()->route('usuario.index');
     }
-
-
 
     public function logout(Request $request)
     {

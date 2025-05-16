@@ -12,8 +12,10 @@
     <div class="card shadow-sm p-4" style="min-width: 350px;">
         <h3 class="text-center mb-4">Entrar na Aplicação</h3>
 
-        @if (session('status'))
-            <div class="alert alert-success">{{ session('status') }}</div>
+        @if (session('status') || session('success'))
+            <div class="alert alert-success">
+                {{ session('status') ?? session('success') }}
+            </div>
         @endif
 
         @if ($errors->any())
