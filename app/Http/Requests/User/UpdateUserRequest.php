@@ -12,7 +12,7 @@ class UpdateUserRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return auth()->check(); // ou true se não houver necessidade de autenticação
+        return auth()->check();
     }
 
     public function rules(): array

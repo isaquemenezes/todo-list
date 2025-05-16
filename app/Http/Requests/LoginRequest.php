@@ -37,8 +37,4 @@ class LoginRequest extends FormRequest
         Auth::login($user, $this->boolean('remember'));
     }
 
-    protected function ensureIsNotRateLimited(): void
-    {
-        // Aqui você pode implementar lógica de limitação (throttle) se quiser
-    }
 }

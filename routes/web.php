@@ -24,9 +24,6 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// })->middleware('auth')->name('home');
 Route::get('/', function () {
 
     if (Auth::user()->is_admin ?? false) {

@@ -33,11 +33,24 @@
                    value="{{ old('email', $usuario->email) }}">
         </div>
 
+
         <div class="mb-3">
             <label for="password" class="form-label">Senha (preencha se quiser alterar)</label>
-            <input type="password" name="password" class="form-control" minlength="8">
-            <div class="form-text">Deixe em branco se não quiser alterar a senha.</div>
+            <input
+                type="password"
+                name="password"
+                id="password"
+                class="form-control"
+                required
+                minlength="8"
+                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&]).+$"
+                title="A senha deve conter pelo menos 8 caracteres, incluindo letras maiúsculas, minúsculas, números e símbolos."
+            >
+            <div class="form-text text-muted">
+                Mínimo 8 caracteres, com letras maiúsculas, minúsculas, números e símbolos.
+            </div>
         </div>
+
 
         <div class="mb-3">
             <label for="status" class="form-label">Status*</label>

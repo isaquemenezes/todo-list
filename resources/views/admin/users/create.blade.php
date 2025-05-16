@@ -30,12 +30,11 @@
             <input type="email" name="email" class="form-control" required maxlength="200" value="{{ old('email') }}">
         </div>
 
-        <div class="mb-3">
+        {{-- <div class="mb-3">
             <label for="password" class="form-label">Senha*</label>
             <input type="password" name="password" class="form-control" required minlength="3" >
-            <div class="form-text">Mínimo 3 caracteres, com letras maiúsculas, minúsculas, números e símbolos.</div>
-        </div>
-        {{-- <div class="mb-3">
+        </div> --}}
+        <div class="mb-3">
             <label for="password" class="form-label">Senha*</label>
             <input
                 type="password"
@@ -50,7 +49,7 @@
             <div class="form-text text-muted">
                 Mínimo 8 caracteres, com letras maiúsculas, minúsculas, números e símbolos.
             </div>
-        </div> --}}
+        </div>
 
         <div class="mb-3">
             <label for="status" class="form-label">Status*</label>
