@@ -7,7 +7,7 @@
     * **PostgreSQL:** 17.4 ou superior (`>= 17.4`)
     * **MySQL:**  - _Observação: O projeto utilizou PostgreSQL._
 
-# Construa e Execute
+# Construa e Execute o Projeto
 
 1. Clone o Repositório
 ```
@@ -40,10 +40,15 @@ DB_PASSWORD=
 http://127.0.0.1:8000
 ```
 
-## Testes Unitários com PHPUnit
+# 🐳 Alternativa: Usando Docker
 ```
-php artisan test
+docker-compose up -d
 
+```
+
+## Acessar o projeto 
+```
+docker-compose exec app bash
 ```
 
 
