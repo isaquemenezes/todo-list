@@ -11,8 +11,10 @@ use App\Http\Requests\User\{
 };
 
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
-use Illuminate\Validation\Rule;
+
+
 class UserController extends Controller
 {
     /**
@@ -105,4 +107,11 @@ class UserController extends Controller
             ->with('success', 'Usuário removido com sucesso!');
 
     }
+
+    public function perfil()
+    {
+        $usuario = Auth::user();
+        return view('usuario.index', compact('usuario'));
+    }
+
 }

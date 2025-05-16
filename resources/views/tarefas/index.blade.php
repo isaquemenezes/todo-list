@@ -84,20 +84,21 @@
                     <td>
                         <a href="{{ route('tarefas.edit', $tarefa->id) }}" class="btn btn-warning btn-sm">Editar</a>
 
-
-                        <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#confirmarExclusaoModal">
-                            Excluir
+                        <!-- Botão que abre o modal -->
+                        <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#confirmarExclusaoModal-{{ $tarefa->id }}">
+                            Excluir  {{$tarefa->id}}
                         </button>
+
                         <!-- Modal -->
-                        <div class="modal fade" id="confirmarExclusaoModal" tabindex="-1" aria-labelledby="confirmarExclusaoModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="confirmarExclusaoModal-{{ $tarefa->id }}" tabindex="-1" aria-labelledby="confirmarExclusaoModalLabel-{{ $tarefa->id }}" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header bg-danger text-white">
-                                        <h5 class="modal-title" id="confirmarExclusaoModalLabel">Confirmar Exclusão</h5>
+                                        <h5 class="modal-title" id="confirmarExclusaoModalLabel-{{ $tarefa->id }}">Confirmar Exclusão</h5>
                                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
                                     </div>
                                     <div class="modal-body">
-                                        Tem certeza de que deseja excluir esta tarefa? Esta ação não poderá ser desfeita.
+                                        Tem certeza de que deseja excluir a tarefa <strong>#{{ $tarefa->titulo }}</strong> ?
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
@@ -107,7 +108,6 @@
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger">Sim, excluir</button>
                                         </form>
-
                                     </div>
                                 </div>
                             </div>
@@ -145,6 +145,12 @@
         </table>
 
     @endif
+
+
+
+
+
+
 </div>
 
 
@@ -194,5 +200,7 @@ document.querySelector('select[name="usuario_id"]').addEventListener('change', f
     document.querySelector('select[name="status"]').selectedIndex = 0;
 });
 </script>
+
+
 
 @endsection

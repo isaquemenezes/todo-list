@@ -31,14 +31,14 @@
             <div class="collapse navbar-collapse" id="navbarAdmin">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a href="{{ route('admin.index') }}" class="nav-link {{ request()->is('/') ? 'active' : '' }}">Início</a>
+                        <a href="{{ route('admin.index') }}" class="nav-link {{ request()->is('admin.index') ? 'active' : '' }}">Início</a>
                     </li>
 
                     <li class="nav-item">
-                        <a href="{{route('tarefas.create')}}" class="nav-link {{ request()->is('relatorios*') ? 'active' : '' }}">Tarefas</a>
+                        <a href="{{route('tarefas.create')}}" class="nav-link">Tarefas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link"  href="{{ route('usuario.index') }}">Perfil</a>
+                        <a class="nav-link"  href="{{ route('usuario.perfil') }}">Perfil</a>
                     </li>
                     <li class="nav-item">
                         <form method="POST" action="{{ route('logout') }}" class="d-inline">

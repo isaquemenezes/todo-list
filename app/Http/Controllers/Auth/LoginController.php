@@ -24,7 +24,7 @@ class LoginController extends Controller
             return redirect()->route('admin.index');
         }
 
-        return redirect()->route('usuario.index');
+        return redirect()->route('usuario.perfil');
     }
 
     public function logout(Request $request)
